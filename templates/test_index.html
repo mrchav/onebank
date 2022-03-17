@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block maincontent%}
+
+{% for obj in object_list %}
+{{obj.id}}) {{obj.bank_name}}<br>
+{% endfor %}
+
+{% endblock %}

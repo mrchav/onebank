@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from banks import views as banks_views
+from onebank import views as onebank_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('banks/', banks_views.show_banks),
+    path('', onebank_views.main_page),
+
 ]
