@@ -5,4 +5,4 @@ from .models import Bank
 
 def show_banks(request):
     object_list = Bank.objects.all()
-    return render(request, './test_index.html', {'object_list':object_list})
+    return render(request, './banks_page.html', {'object_list':object_list})
