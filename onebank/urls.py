@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
+
 from banks import views as banks_views
 from onebank import views as onebank_views
 
@@ -23,4 +26,5 @@ urlpatterns = [
     path('banks/', banks_views.show_banks),
     path('', onebank_views.main_page),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
