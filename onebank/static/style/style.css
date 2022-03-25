@@ -1,0 +1,48 @@
+h1 {
+color:#444;
+}
+.bnscapt{
+font-size: 15px;
+color: #777;
+font-weight: bold;
+}
+.brow{
+height: 60px;
+margin-bottom: 30px;
+}
+
+.stlic{
+color: rgba(0,0,0,.45);
+font-size: small;
+}
+.bank-title{
+font-size: 16px;
+color: #555;
+font-weight: bold;
+}
+.bank-title-adres{
+font-size: 14px;
+color: #777;
+}
+
+.obecdep{
+font-size: 16px;
+color: #555;
+}
+.obmap{
+margin-top: 50px;
+height:500px;
+}
+
+.ob-adres-title-text{
+font-size: 16px;
+color: #555;
+font-weight: bold;
+}
+
+#map {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }

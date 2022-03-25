@@ -22,9 +22,11 @@ from banks import views as banks_views
 from onebank import views as onebank_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('banks/', banks_views.show_banks),
-    path('', onebank_views.main_page),
+                  path('', onebank_views.main_page),
+                  path('admin/', admin.site.urls),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('banks/', banks_views.show_banks),
+                  path('bank/<int:bank_id>/', banks_views.one_bank_info, name='bank-id'),
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

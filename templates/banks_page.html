@@ -4,65 +4,53 @@
 
 {% block maincontent%}
 
-<h1> Все Банки </h1>
+<h1> Банки России </h1>
 
-  <div class="row alert alert-secondary">
-    <div class="col" >
-      <div class="row">
-        <div class="col text-center" >
+  <div class="row alert alert-secondary bnscapt">
+    <div class="col text-center " >
+          Банк
 
-        </div>
-        <div class="col text-center">
-          название банка
-        </div>
-      </div>
     </div>
     <div class="col">
        <div class="row">
-        <div class="col-6 text-center">
+        <div class="col-8 text-center">
           адрес
         </div>
         <div class="col-4 text-center">
           телефон
         </div>
-        <div class="col-2 text-center">
-          отделения
-        </div>
+
       </div>
     </div>
   </div>
 {% for obj in object_list %}
-  <div class="row">
+  <div class="row brow" >
     <div class="col">
       <div class="row">
-        <div class="col text-center">
-          <img height="40" src="/media/{{obj.bank_logo}}">
+        <div class="col">
+            <a href="{% url 'bank-id' obj.id %}"><img height="30" src="/media/{{obj.bank_logo}}"></a>
         </div>
-        <div class="col align-self-center text-center">
-           {{obj.bank_name}}
+        <div class="col">
+            <div class="">
+                <a class="bank-title" href="{% url 'bank-id' obj.id %}">{{obj.bank_name}}</a>
+            </div>
+            <div class="stlic">
+                Лицензия ЦБ РФ №{{obj.bank_license}}
+            </div>
         </div>
       </div>
     </div>
     <div class="col">
        <div class="row">
-        <div class="col-6 align-self-center text-center">
+        <div class="col-8 bank-title-adres">
           {{obj.bank_adress_index}}, {{obj.bank_main_adress}}
         </div>
-        <div class="col-4 align-self-center text-center">
+        <div class="col-4 text-center bank-title-adres">
           {{obj.bank_phone}}
         </div>
-        <div class="col-2 align-self-center text-center">
-          ?
-        </div>
+
       </div>
     </div>
   </div>
-
-
-
 {% endfor %}
-
-
-
-
 {% endblock %}

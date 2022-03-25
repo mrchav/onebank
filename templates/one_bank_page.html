@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% load static %}
+
+
+{% block maincontent%}
+
+
+<div class="row brow" >
+    <div class="col-8">
+        <div>
+            <h1> {{one_bank.bank_name}} </h1>
+        </div>
+        <div  class="stlic">
+             Лицензия ЦБ РФ №{{one_bank.bank_license}}
+        </div>
+    </div>
+    <div class="col-4">
+        <h1> <img height="60" src="/media/{{one_bank.bank_logo}}"> </h1>
+    </div>
+
+
+
+</div>
+<div class="row" >
+    <div class="col">
+    <div class="row obecdep">
+        Депозиты:
+    </div>
+    <div class="row">
+        {% if one_bank.bank_fin_deposit > 0  %}
+            {{ one_bank.bank_fin_deposit|intcomma }} млн. руб.
+        {% else %}
+            нет данных
+        {% endif %}
+
+    </div>
+    </div>
+    <div class="col">
+    <div class="row obecdep">
+        Активы:
+    </div>
+    <div class="row">
+        {% if one_bank.bank_fin_assets > 0 %}
+            {{ one_bank.bank_fin_assets|intcomma }} млн. руб.
+        {% else %}
+            нет данных
+        {% endif %}
+    </div>
+    </div>
+    <div class="col">
+    <div class="row obecdep">
+       Кредиты:
+    </div>
+    <div class="row">
+        {% if one_bank.bank_fin_fiz_credit > 0 %}
+            {{ one_bank.bank_fin_fiz_credit|intcomma }} млн. руб.
+        {% else %}
+            нет данных
+        {% endif %}
+    </div>
+    </div>
+    <div class="col">
+    <div class="row obecdep">
+        Прибыль банка:
+    </div>
+    <div class="row">
+        {% if one_bank.bank_fin_profit > 0 %}
+            {{ one_bank.bank_fin_profit|intcomma }} млн. руб.
+        {% else %}
+            нет данных
+        {% endif %}
+    </div>
+    </div>
+</div>
+<div class="row obmap" >
+    <div class="col">
+        <div class="row ob-adres-title-text">
+            Адрес центрального офиса:
+        </div>
+
+        <div class="row" id="map_adres">
+            {{one_bank.bank_main_adress}}
+        </div>
+    </div>
+
+ <div id="map" ></div>
+</div>
+{% endblock %}
